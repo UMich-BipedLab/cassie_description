@@ -1,0 +1,12 @@
+<!-- Author: Ross Hartley
+     Email:  rosshart@umich.edu
+     Date:   12/14/2016   -->
+
+<launch>
+	<arg name="gui" default="True" />
+	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_simple.urdf"/>
+	<param name="use_gui" value="$(arg gui)"/>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="$(find cassie_description)/rviz/cassie.rviz" required="false" />
+</launch>
