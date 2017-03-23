@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<!-- Author: Ross Hartley
+<!-- University of Michigan 
+	 Author: Ross Hartley
      Email:  rosshart@umich.edu
-     Date:   12/14/2016   -->
+     Date:   3/22/2016   -->
 <robot name="cassie_simple" 
   xmlns:xacro="http://ros.org/wiki/xacro">
   <!-- Properties -->
