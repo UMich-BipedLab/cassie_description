@@ -1,5 +1,5 @@
 # cassie_description
-This repository contains the UDRF model of the CASSIE robot (with no springs) from Agility Robotics. 
+This repository contains the .urdf model of the CASSIE robot from Agility Robotics (no springs or joint limits). 
 It also includes a a way to visualize the robot using ROS and rviz. 
 
 
