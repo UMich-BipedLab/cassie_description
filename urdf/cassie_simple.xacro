@@ -1,36 +1,37 @@
 <?xml version="1.0"?>
-<!-- University of Michigan 
-     Author: Ross Hartley
-     Email:  rosshart@umich.edu
-     Date:   3/22/2016   -->
+<!-- Author: Ross Hartley
+	 Email:  rosshart@umich.edu
+     Date:   04/24/2016   -->
 <robot name="cassie_simple" 
   xmlns:xacro="http://ros.org/wiki/xacro">
+  
   <!-- Properties -->
   <xacro:property name="black_RGB" value="0.1 0.1 0.1 1" />
   <xacro:property name="grey_RGB" value="0.35 0.35 0.35 1" />
   <xacro:property name="orange_RGB" value=".9569 .5372 .2588 1" />
-  <xacro:property name="blue_RGB" value=".01569 .11765 .25882 1" />
-  <xacro:property name="maize_RGB" value=".945098 .76863 0.0 1" />
+  <xacro:property name="blue_RGB" value=".0157 .1176 .2588 1" />
+  <xacro:property name="maize_RGB" value=".9451 .7686 0 1" />
+  <xacro:property name="light_grey_RGB" value="0.75 0.75 0.75 1" />
+
   <!-- Links -->
-  <xacro:pelvis cname="blue" color="${blue_RGB}" />
-  <xacro:pelvis_abduction side="left" cname="maize" color="${maize_RGB}" stl_ext=""/>
-  <xacro:pelvis_rotation side="left" cname="maize" color="${maize_RGB}" stl_ext="" reflect="1" />
-  <xacro:hip side="left" cname="maize" color="${maize_RGB}" stl_ext="" />
-  <xacro:thigh side="left" cname="maize" color="${maize_RGB}" stl_ext="" reflect="1"/>
-  <xacro:knee side="left" cname="maize" color="${maize_RGB}" stl_ext="" reflect="1"/>
-  <xacro:shin side="left" cname="blue" color="${blue_RGB}" stl_ext="" reflect="1"/>
-  <xacro:tarsus side="left" cname="blue" color="${blue_RGB}" stl_ext="" reflect="1"/>
-  <xacro:toe side="left" cname="maize" color="${maize_RGB}" stl_ext="" reflect="1"/>
-
-  <xacro:pelvis_abduction side="right" cname="maize" color="${maize_RGB}" stl_ext="_mirror"/>
-  <xacro:pelvis_rotation side="right" cname="maize" color="${maize_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:hip side="right" cname="maize" color="${maize_RGB}" stl_ext="_mirror"/>
-  <xacro:thigh side="right" cname="maize" color="${maize_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:knee side="right" cname="maize" color="${maize_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:shin side="right" cname="blue" color="${blue_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:tarsus side="right" cname="blue" color="${blue_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:toe side="right" cname="maize" color="${maize_RGB}" stl_ext="_mirror" reflect="-1"/>
-
+  <xacro:pelvis cname="grey" color="${grey_RGB}" />
+  <xacro:pelvis_abduction side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext=""/>
+  <xacro:pelvis_rotation side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1" />
+  <xacro:hip side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" />
+  <xacro:thigh side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:knee side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:shin side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:tarsus side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:toe side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:pelvis_abduction side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror"/>
+  <xacro:pelvis_rotation side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:hip side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror"/>
+  <xacro:thigh side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:knee side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:shin side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:tarsus side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:toe side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  
   <!-- Joints -->
   <xacro:fixed_pelvis_to_abduction side="left" reflect="1"/>
   <xacro:hip_abduction side="left"/>
@@ -48,6 +49,7 @@
   <xacro:fixed_knee_to_shin side="right"/>
   <xacro:ankle_joint side="right"/>
   <xacro:toe_joint side="right"/>
+  
   <!-- Link Definitions-->
   <xacro:macro name="pelvis" params="cname color">
     <link name="pelvis">
@@ -90,7 +92,7 @@
       <inertial>
         <origin xyz=".0257 ${reflect*.0001} .0179" rpy="0 0 0"/>
         <mass value="1.82" />
-        <inertia ixx=".00272" ixy=".000000703" ixz=".00000153" iyy=".00559" iyz=".00000261" izz=".004640" />
+        <inertia ixx=".00272" ixy="${reflect*.000000703}" ixz=".00000153" iyy=".00559" iyz="${reflect*.00000261}" izz=".004640" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -126,7 +128,7 @@
       <inertial>
         <origin xyz=".0598 .0001 ${reflect*-.0358}" rpy="0 0 0"/>
         <mass value="5.52" />
-        <inertia ixx=".018" ixy=".000284" ixz="-.0117" iyy=".0563" iyz="-.0000193" izz=".0498" />
+        <inertia ixx=".018" ixy=".000284" ixz="${reflect*-.0117}" iyy=".0563" iyz="${reflect*-.0000193}" izz=".0498" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -144,7 +146,7 @@
       <inertial>
         <origin xyz=".023 .0321 ${reflect*-.0022}" rpy="0 0 0"/>
         <mass value=".758" />
-        <inertia ixx=".002160" ixy=".000956" ixz=".00000284" iyy=".00144" iyz=".000000739" izz=".00334" />
+        <inertia ixx=".002160" ixy=".000956" ixz="${reflect*.00000284}" iyy=".00144" iyz="${reflect*.000000739}" izz=".00334" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -162,7 +164,7 @@
       <inertial>
         <origin xyz=".1834 .0012 ${reflect*.0002}" rpy="0 0 0"/>
         <mass value=".577" />
-        <inertia ixx=".000360" ixy=".000334" ixz="-.000000194" iyy=".0341" iyz=".000000265" izz=".0341" />
+        <inertia ixx=".000360" ixy=".000334" ixz="${reflect*-.000000194}" iyy=".0341" iyz="${reflect*.000000265}" izz=".0341" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -180,7 +182,7 @@
       <inertial>
         <origin xyz=".1105 -.0306 ${reflect*-.0013}" rpy="0 0 0"/>
         <mass value=".782" />
-        <inertia ixx=".00113" ixy="-.00288" ixz="-.0000633" iyy=".0231" iyz=".0000362" izz=".0239" />
+        <inertia ixx=".00113" ixy="-.00288" ixz="${reflect*-.0000633}" iyy=".0231" iyz="${reflect*.0000362}" izz=".0239" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -198,7 +200,7 @@
       <inertial>
         <origin xyz=".0047 .0275 ${reflect*-.0001}" rpy="0 0 0"/>
         <mass value=".15" />
-        <inertia ixx=".000287" ixy="-.0000986" ixz="-.00000146" iyy=".000171" iyz=".000000172" izz=".000449" />
+        <inertia ixx=".000287" ixy="-.0000986" ixz="${reflect*-.00000146}" iyy=".000171" iyz="${reflect*.000000172}" izz=".000449" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -211,6 +213,7 @@
       </visual>
     </link>
   </xacro:macro>
+  
   <!-- Joint Definitions -->
   <xacro:macro name="fixed_pelvis_to_abduction" params="side reflect">
     <joint name="fixed_${side}" type="fixed">
