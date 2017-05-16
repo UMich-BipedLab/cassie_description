@@ -50,6 +50,19 @@
   <xacro:ankle_joint side="right"/>
   <xacro:toe_joint side="right"/>
   
+  <!-- Transmissions -->
+  <xacro:hip_abduction_trans side="left"/>
+  <xacro:hip_rotation_trans side="left"/>
+  <xacro:hip_flexion_trans side="left"/>
+  <xacro:knee_joint_trans side="left"/>
+  <xacro:toe_joint_trans side="left"/>
+  <xacro:hip_abduction_trans side="right"/>
+  <xacro:hip_rotation_trans side="right"/>
+  <xacro:hip_flexion_trans side="right"/>
+  <xacro:knee_joint_trans side="right"/>
+  <xacro:toe_joint_trans side="right"/>
+
+  
   <!-- Link Definitions-->
   <xacro:macro name="pelvis" params="cname color">
     <link name="pelvis">
@@ -221,6 +234,7 @@
       <axis xyz="0 0 1"/>
       <parent link="pelvis" />
       <child link="${side}_pelvis_abduction" />
+	  <limit lower="0" upper="0" effort="0" velocity="0" />
     </joint>
   </xacro:macro>
   <xacro:macro name="hip_abduction" params="side">
@@ -229,6 +243,12 @@
       <axis xyz="1 0 0"/>
       <parent link="${side}_pelvis_abduction" />
       <child link="${side}_pelvis_rotation" />
+	  <xacro:if value="${side == 'left'}">
+	    <limit lower="-0.2618" upper="0.3927" effort="4.5" velocity="12.1475" />
+	  </xacro:if>
+	  <xacro:if value="${side == 'right'}">
+	    <limit lower="-0.3927" upper="0.2618" effort="4.5" velocity="12.1475" />
+	  </xacro:if>	  
     </joint>
   </xacro:macro>
   <xacro:macro name="hip_rotation" params="side">
@@ -237,6 +257,7 @@
       <axis xyz="1 0 0"/>
       <parent link="${side}_pelvis_rotation" />
       <child link="${side}_hip" />
+	  <limit lower="-0.3927" upper="0.3927" effort="4.5" velocity="12.1475" />
     </joint>
   </xacro:macro>
   <xacro:macro name="hip_flexion" params="side">
@@ -245,6 +266,7 @@
       <axis xyz="0 0 1"/>
       <parent link="${side}_hip" />
       <child link="${side}_thigh" />
+	  <limit lower="-0.8727" upper="1.3963" effort="12.2" velocity="8.5085" />
     </joint>
   </xacro:macro>
   <xacro:macro name="knee_joint" params="side reflect">
@@ -253,6 +275,7 @@
       <axis xyz="0 0 1"/>
       <parent link="${side}_thigh" />
       <child link="${side}_knee" />
+	  <limit lower="-2.8623" upper="-0.6458" effort="12.2" velocity="8.5085" />
     </joint>
   </xacro:macro>
   <xacro:macro name="fixed_knee_to_shin" params="side">
@@ -261,6 +284,7 @@
       <axis xyz="0 0 1"/>
       <parent link="${side}_knee" />
       <child link="${side}_shin" />
+	  <limit lower="0" upper="0" effort="0" velocity="0" />
     </joint>
   </xacro:macro>
   <xacro:macro name="ankle_joint" params="side">
@@ -269,6 +293,7 @@
       <axis xyz="0 0 1"/>
       <parent link="${side}_shin" />
       <child link="${side}_tarsus" />
+	  <limit lower="-100" upper="100" effort="0" velocity="100" />
     </joint>
   </xacro:macro>
   <xacro:macro name="toe_joint" params="side">
@@ -277,6 +302,50 @@
       <axis xyz="0 0 1"/>
       <parent link="${side}_tarsus" />
       <child link="${side}_toe" />
+	  <limit lower="-2.4435" upper="-0.5236" effort="0.9" velocity="11.5192" />
     </joint>
   </xacro:macro>
+  
+  <!-- Transmission Definitions -->
+  <xacro:macro name="hip_abduction_trans" params="side">
+    <transmission name="hip_abduction_trans_${side}" type="transmission_interface/SimpleTransmission">
+	  <joint name="hip_abduction_${side}"/>
+	  <actuator name="hip_abduction_motor_${side}"/>
+	  <actuatorInertia>0.000061</actuatorInertia>
+	  <mechanicalReduction>25</mechanicalReduction>
+    </transmission>
+  </xacro:macro>
+  <xacro:macro name="hip_rotation_trans" params="side">
+    <transmission name="hip_rotation_trans_${side}" type="transmission_interface/SimpleTransmission">
+	  <joint name="hip_rotation_${side}"/>
+	  <actuator name="hip_rotation_motor_${side}"/>
+	  <actuatorInertia>0.000061</actuatorInertia>
+	  <mechanicalReduction>25</mechanicalReduction>
+    </transmission>
+  </xacro:macro>
+  <xacro:macro name="hip_flexion_trans" params="side">
+    <transmission name="hip_flexion_trans_${side}" type="transmission_interface/SimpleTransmission">
+	  <joint name="hip_flexion_${side}"/>
+	  <actuator name="hip_flexion_motor_${side}"/>
+	  <actuatorInertia>0.000365</actuatorInertia>
+	  <mechanicalReduction>16</mechanicalReduction>
+    </transmission>
+  </xacro:macro>
+  <xacro:macro name="knee_joint_trans" params="side">
+    <transmission name="knee_joint_trans_${side}" type="transmission_interface/SimpleTransmission">
+	  <joint name="knee_joint_${side}"/>
+	  <actuator name="knee_joint_motor_${side}"/>
+	  <actuatorInertia>0.000365</actuatorInertia>
+	  <mechanicalReduction>16</mechanicalReduction>
+    </transmission>
+  </xacro:macro>
+  <xacro:macro name="toe_joint_trans" params="side">
+    <transmission name="toe_joint_trans_${side}" type="transmission_interface/SimpleTransmission">
+	  <joint name="toe_joint_${side}"/>
+	  <actuator name="toe_joint_motor_${side}"/>
+	  <actuatorInertia>0.0000049</actuatorInertia>
+	  <mechanicalReduction>50</mechanicalReduction>
+    </transmission>
+  </xacro:macro>  
+
 </robot>

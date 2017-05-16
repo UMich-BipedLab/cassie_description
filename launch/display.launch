@@ -3,8 +3,8 @@
      Date:   3/22/2016   -->
 
 <launch>
-	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_simple.urdf"/>
+	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie.urdf"/>
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie_simple.rviz" required="false" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie.rviz" required="false" />
 </launch>
