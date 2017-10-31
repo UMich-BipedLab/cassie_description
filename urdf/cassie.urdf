@@ -6,7 +6,7 @@
 <!-- Author: Ross Hartley
 	 Email:  rosshart@umich.edu
      Date:   04/24/2016   -->
-<robot name="cassie_simple" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="cassie" xmlns:xacro="http://ros.org/wiki/xacro">
   <link name="pelvis">
     <inertial>
       <origin rpy="0 0 0" xyz=".0507 0 .0284"/>
@@ -295,7 +295,7 @@
   </joint>
   <joint name="hip_rotation_left" type="continuous">
     <origin rpy="0 1.57079632679 -1.57079632679" xyz="0 0 -0.09"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="-1 0 0"/>
     <parent link="left_pelvis_rotation"/>
     <child link="left_hip"/>
     <limit effort="4.5" lower="-0.3927" upper="0.3927" velocity="12.1475"/>
@@ -351,7 +351,7 @@
   </joint>
   <joint name="hip_rotation_right" type="continuous">
     <origin rpy="0 1.57079632679 -1.57079632679" xyz="0 0 -0.09"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="-1 0 0"/>
     <parent link="right_pelvis_rotation"/>
     <child link="right_hip"/>
     <limit effort="4.5" lower="-0.3927" upper="0.3927" velocity="12.1475"/>
@@ -394,61 +394,61 @@
   <transmission name="hip_abduction_trans_left" type="transmission_interface/SimpleTransmission">
     <joint name="hip_abduction_left"/>
     <actuator name="hip_abduction_motor_left"/>
-    <actuatorInertia>0.000061</actuatorInertia>
+    <motorInertia>0.000061</motorInertia>
     <mechanicalReduction>25</mechanicalReduction>
   </transmission>
   <transmission name="hip_rotation_trans_left" type="transmission_interface/SimpleTransmission">
     <joint name="hip_rotation_left"/>
     <actuator name="hip_rotation_motor_left"/>
-    <actuatorInertia>0.000061</actuatorInertia>
+    <motorInertia>0.000061</motorInertia>
     <mechanicalReduction>25</mechanicalReduction>
   </transmission>
   <transmission name="hip_flexion_trans_left" type="transmission_interface/SimpleTransmission">
     <joint name="hip_flexion_left"/>
     <actuator name="hip_flexion_motor_left"/>
-    <actuatorInertia>0.000365</actuatorInertia>
+    <motorInertia>0.000365</motorInertia>
     <mechanicalReduction>16</mechanicalReduction>
   </transmission>
   <transmission name="knee_joint_trans_left" type="transmission_interface/SimpleTransmission">
     <joint name="knee_joint_left"/>
     <actuator name="knee_joint_motor_left"/>
-    <actuatorInertia>0.000365</actuatorInertia>
+    <motorInertia>0.000365</motorInertia>
     <mechanicalReduction>16</mechanicalReduction>
   </transmission>
   <transmission name="toe_joint_trans_left" type="transmission_interface/SimpleTransmission">
     <joint name="toe_joint_left"/>
     <actuator name="toe_joint_motor_left"/>
-    <actuatorInertia>0.0000049</actuatorInertia>
+    <motorInertia>0.0000049</motorInertia>
     <mechanicalReduction>50</mechanicalReduction>
   </transmission>
   <transmission name="hip_abduction_trans_right" type="transmission_interface/SimpleTransmission">
     <joint name="hip_abduction_right"/>
     <actuator name="hip_abduction_motor_right"/>
-    <actuatorInertia>0.000061</actuatorInertia>
+    <motorInertia>0.000061</motorInertia>
     <mechanicalReduction>25</mechanicalReduction>
   </transmission>
   <transmission name="hip_rotation_trans_right" type="transmission_interface/SimpleTransmission">
     <joint name="hip_rotation_right"/>
     <actuator name="hip_rotation_motor_right"/>
-    <actuatorInertia>0.000061</actuatorInertia>
+    <motorInertia>0.000061</motorInertia>
     <mechanicalReduction>25</mechanicalReduction>
   </transmission>
   <transmission name="hip_flexion_trans_right" type="transmission_interface/SimpleTransmission">
     <joint name="hip_flexion_right"/>
     <actuator name="hip_flexion_motor_right"/>
-    <actuatorInertia>0.000365</actuatorInertia>
+    <motorInertia>0.000365</motorInertia>
     <mechanicalReduction>16</mechanicalReduction>
   </transmission>
   <transmission name="knee_joint_trans_right" type="transmission_interface/SimpleTransmission">
     <joint name="knee_joint_right"/>
     <actuator name="knee_joint_motor_right"/>
-    <actuatorInertia>0.000365</actuatorInertia>
+    <motorInertia>0.000365</motorInertia>
     <mechanicalReduction>16</mechanicalReduction>
   </transmission>
   <transmission name="toe_joint_trans_right" type="transmission_interface/SimpleTransmission">
     <joint name="toe_joint_right"/>
     <actuator name="toe_joint_motor_right"/>
-    <actuatorInertia>0.0000049</actuatorInertia>
+    <motorInertia>0.0000049</motorInertia>
     <mechanicalReduction>50</mechanicalReduction>
   </transmission>
 </robot>

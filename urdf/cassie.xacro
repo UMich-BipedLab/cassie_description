@@ -2,7 +2,7 @@
 <!-- Author: Ross Hartley
 	 Email:  rosshart@umich.edu
      Date:   04/24/2016   -->
-<robot name="cassie_simple" 
+<robot name="cassie" 
   xmlns:xacro="http://ros.org/wiki/xacro">
   
   <!-- Properties -->
@@ -254,7 +254,7 @@
   <xacro:macro name="hip_rotation" params="side">
     <joint name="hip_rotation_${side}" type="continuous">
       <origin xyz="0 0 -0.09" rpy="0 ${pi/2} ${-pi/2}"/>
-      <axis xyz="1 0 0"/>
+      <axis xyz="-1 0 0"/>
       <parent link="${side}_pelvis_rotation" />
       <child link="${side}_hip" />
 	  <limit lower="-0.3927" upper="0.3927" effort="4.5" velocity="12.1475" />
@@ -311,7 +311,7 @@
     <transmission name="hip_abduction_trans_${side}" type="transmission_interface/SimpleTransmission">
 	  <joint name="hip_abduction_${side}"/>
 	  <actuator name="hip_abduction_motor_${side}"/>
-	  <actuatorInertia>0.000061</actuatorInertia>
+	  <motorInertia>0.000061</motorInertia>
 	  <mechanicalReduction>25</mechanicalReduction>
     </transmission>
   </xacro:macro>
@@ -319,7 +319,7 @@
     <transmission name="hip_rotation_trans_${side}" type="transmission_interface/SimpleTransmission">
 	  <joint name="hip_rotation_${side}"/>
 	  <actuator name="hip_rotation_motor_${side}"/>
-	  <actuatorInertia>0.000061</actuatorInertia>
+	  <motorInertia>0.000061</motorInertia>
 	  <mechanicalReduction>25</mechanicalReduction>
     </transmission>
   </xacro:macro>
@@ -327,7 +327,7 @@
     <transmission name="hip_flexion_trans_${side}" type="transmission_interface/SimpleTransmission">
 	  <joint name="hip_flexion_${side}"/>
 	  <actuator name="hip_flexion_motor_${side}"/>
-	  <actuatorInertia>0.000365</actuatorInertia>
+	  <motorInertia>0.000365</motorInertia>
 	  <mechanicalReduction>16</mechanicalReduction>
     </transmission>
   </xacro:macro>
@@ -335,7 +335,7 @@
     <transmission name="knee_joint_trans_${side}" type="transmission_interface/SimpleTransmission">
 	  <joint name="knee_joint_${side}"/>
 	  <actuator name="knee_joint_motor_${side}"/>
-	  <actuatorInertia>0.000365</actuatorInertia>
+	  <motorInertia>0.000365</motorInertia>
 	  <mechanicalReduction>16</mechanicalReduction>
     </transmission>
   </xacro:macro>
@@ -343,7 +343,7 @@
     <transmission name="toe_joint_trans_${side}" type="transmission_interface/SimpleTransmission">
 	  <joint name="toe_joint_${side}"/>
 	  <actuator name="toe_joint_motor_${side}"/>
-	  <actuatorInertia>0.0000049</actuatorInertia>
+	  <motorInertia>0.0000049</motorInertia>
 	  <mechanicalReduction>50</mechanicalReduction>
     </transmission>
   </xacro:macro>  

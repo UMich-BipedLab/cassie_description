@@ -4,7 +4,13 @@
 
 <launch>
 	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie.urdf"/>
-	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  		<param name="use_gui" value="true" />
+	</node>
+
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie.rviz" required="false" />
+
 </launch>
