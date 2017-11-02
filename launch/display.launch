@@ -9,7 +9,8 @@
   		<param name="use_gui" value="true" />
 	</node>
 
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+	</node>
 
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie.rviz" required="false" />
 

@@ -160,6 +160,55 @@ Visualization Manager:
           Value: true
       Name: RobotModel
       Robot Description: cassie_description
+      TF Prefix: cassie
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        multisense/accel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multisense/gyro:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multisense/head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        multisense/left_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multisense/left_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multisense/mag:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multisense/right_camera_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multisense/right_camera_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: RobotModel
+      Robot Description: multisense_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
@@ -167,7 +216,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: pelvis
+    Fixed Frame: cassie/pelvis
     Frame Rate: 30
   Name: root
   Tools:
@@ -203,10 +252,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.200398058
+      Pitch: 0.335398018
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.99857521
+      Yaw: 4.64357471
     Saved: ~
 Window Geometry:
   Displays:
