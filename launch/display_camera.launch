@@ -9,7 +9,7 @@
   	<arg name="camera_type" default="S7" />
 
 	<!-- Load URDFs -->
-	<param name="cassie_description" textfile="$(find cassie_description)/urdf/cassie.urdf"/>
+	<param name="cassie_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors.urdf"/>
     	<param name="multisense_description" command="$(find xacro)/xacro.py '$(find multisense_description)/urdf/multisense$(arg camera_type)/standalone.urdf.xacro' name:=$(arg camera_namespace)"/>
 
 	<!-- Cassie state publisher -->
@@ -23,7 +23,7 @@
 	<!-- Cassie joint publisher -->
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
   		<param name="use_gui" value="true" />
-		<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie.urdf"/>
+		<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors.urdf"/>
 		<remap from="joint_states" to="/$(arg cassie_namespace)/joint_states" />
 	</node>
 
@@ -35,7 +35,7 @@
 	</node>
 
 	<!-- Fixed pelvis to camera transformation publisher -->
-	<node pkg="tf" type="static_transform_publisher" name="fixed_camera_broadcaster" args="0 0 0.25 0 0 0 1 cassie/pelvis multisense/head 100" />
+	<node pkg="tf" type="static_transform_publisher" name="fixed_camera_broadcaster" args="0 0 0 0 0 0 1 cassie/multisense multisense/head 100" />
 
 	<!-- Display -->
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie_camera.rviz" required="false" />
