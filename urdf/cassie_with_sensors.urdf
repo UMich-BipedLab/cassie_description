@@ -336,12 +336,12 @@
     <child link="left_knee"/>
     <limit effort="12.2" lower="-2.8623" upper="-0.6458" velocity="8.5085"/>
   </joint>
-  <joint name="fixed_knee_to_shin_left" type="fixed">
+  <joint name="knee_to_shin_left" type="continuous">
     <origin rpy="0 0 0" xyz="0.0607 0.0474 0"/>
     <axis xyz="0 0 1"/>
     <parent link="left_knee"/>
     <child link="left_shin"/>
-    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <limit effort="0" lower="-100" upper="100" velocity="100"/>
   </joint>
   <joint name="ankle_joint_left" type="continuous">
     <origin rpy="0 0 0" xyz="0.4348 0.02 0"/>
@@ -390,12 +390,12 @@
     <child link="right_knee"/>
     <limit effort="12.2" lower="-2.8623" upper="-0.6458" velocity="8.5085"/>
   </joint>
-  <joint name="fixed_knee_to_shin_right" type="fixed">
+  <joint name="knee_to_shin_right" type="continuous">
     <origin rpy="0 0 0" xyz="0.0607 0.0474 0"/>
     <axis xyz="0 0 1"/>
     <parent link="right_knee"/>
     <child link="right_shin"/>
-    <limit effort="0" lower="0" upper="0" velocity="0"/>
+    <limit effort="0" lower="-100" upper="100" velocity="100"/>
   </joint>
   <joint name="ankle_joint_right" type="continuous">
     <origin rpy="0 0 0" xyz="0.4348 0.02 0"/>

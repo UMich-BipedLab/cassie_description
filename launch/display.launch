@@ -3,7 +3,7 @@
      Date:   3/22/2016   -->
 
 <launch>
-	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie.urdf"/>
+	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors.urdf"/>
 
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
   		<param name="use_gui" value="true" />
