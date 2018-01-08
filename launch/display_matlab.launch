@@ -1,0 +1,33 @@
+<!-- Author: Ross Hartley
+     Email:  rosshart@umich.edu
+     Date:   3/22/2016   -->
+
+<launch>
+	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors_matlab.urdf"/>
+
+  <rosparam command="load" file="$(find cassie_description)/config/image_to_gridmap.yaml" />
+  
+  <!-- Launch the grid map simple demo node -->
+  <!--<node pkg="grid_map_demos" type="image_publisher.py" name="image_publisher" output="screen" />-->
+  <node pkg="grid_map_demos" type="image_to_gridmap_demo" name="image_to_gridmap" output="screen" />
+  
+  <!-- Launch the grid map visualizer -->
+  <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen" />
+
+	<!-- Cassie state publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="state_publisher">
+		<param name="use_tf_static" value="false" />
+		<param name="publish_frequency" type="double" value="100.0" />
+	</node>
+
+	<!-- Cassie joint publisher -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  		<param name="use_gui" value="false" />
+  		<param name="publish_default_positions" value="false" />
+  		<rosparam param="source_list">[joint_states_matlab]</rosparam>
+		<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors_matlab.urdf"/>
+	</node>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie.rviz" required="false" />
+
+</launch>
