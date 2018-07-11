@@ -3,13 +3,28 @@
      Date:   3/22/2016   -->
 
 <launch>
-	<param name="robot_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors.urdf"/>
+	<!-- Input Arguments -->
+	<arg name="cassie_namespace" 		default="cassie" />
+  	<arg name="publish_joint_states" 	default="false" />
 
-	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-  		<param name="use_gui" value="true" />
-	</node>
+	<!-- Load URDFs -->
+	<param name="cassie_description" textfile="$(find cassie_description)/urdf/cassie_with_sensors.urdf"/>
 
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+	<!-- Cassie joint state publisher -->
+	<group if = "$(arg publish_joint_states)">
+		<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+			<param name="use_gui" value="false" />
+			<remap from="joint_states" to="/$(arg cassie_namespace)/joint_states" />
+		</node>
+	</group>
+
+	<!-- Cassie state publisher -->
+	<node pkg="robot_state_publisher" type="state_publisher" name="$(arg cassie_namespace)_state_publisher">
+		<param name="tf_prefix" value="/$(arg cassie_namespace)" />
+		<param name="use_tf_static" type="bool" value="false" />
+		<param name="publish_frequency" type="double" value="100.0" />
+		<remap from="robot_description" to="cassie_description" />
+		<remap from="joint_states" to="/$(arg cassie_namespace)/joint_states" />
 	</node>
 
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cassie_description)/rviz/cassie.rviz" required="false" />
