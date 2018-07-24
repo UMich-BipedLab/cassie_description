@@ -20,7 +20,6 @@
   <xacro:z_link />
   <xacro:yaw_link />
   <xacro:pitch_link />
-  <xacro:multisense />
   <xacro:vectorNav />
   <xacro:pelvis cname="grey" color="${grey_RGB}" />
   <xacro:pelvis_abduction side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext=""/>
@@ -47,7 +46,6 @@
   <xacro:yaw />
   <xacro:pitch />
   <xacro:roll />
-  <xacro:fixed_pelvis_to_multisense />
   <xacro:fixed_pelvis_to_vectorNav />
   <xacro:fixed_pelvis_to_abduction side="left" reflect="1"/>
   <xacro:hip_abduction side="left"/>
@@ -129,15 +127,6 @@
     <link name="pitch_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="0" />
-                <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
-      </inertial>
-    </link>
-  </xacro:macro>
-  <xacro:macro name="multisense">
-    <link name="multisense">
-      <inertial>
-        <origin xyz="0 0 0.25" rpy="0 0 0"/>
         <mass value="0" />
                 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
       </inertial>
@@ -366,17 +355,10 @@
       <parent link="pitch_link" />
       <child link="pelvis" />
     </joint>
-  </xacro:macro>
-  <xacro:macro name="fixed_pelvis_to_multisense">
-    <joint name="fixed_pelvis_to_multisense" type="fixed">
-      <origin xyz="0 0 0.25" rpy="0 0 0"/>
-      <parent link="pelvis" />
-      <child link="multisense" />
-    </joint>
-  </xacro:macro>
+  </xacro:macro>  
   <xacro:macro name="fixed_pelvis_to_vectorNav">
     <joint name="fixed_pelvis_to_vectorNav" type="fixed">
-      <origin xyz="0.03155 0 -0.07996" rpy="${pi} 0 0"/>
+      <origin xyz="0.03155 0 -0.07996" rpy="0 0 0"/>
       <parent link="pelvis" />
       <child link="vectorNav" />
     </joint>

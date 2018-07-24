@@ -1,0 +1,11 @@
+dependent_joints:
+  knee_to_shin_left: {parent: knee_joint_left, factor: -1 }
+  ankle_joint_left: {parent: knee_joint_left, factor: 0 }
+  knee_to_shin_right: {parent: knee_joint_right, factor: 0 }
+  ankle_joint_right: {parent: knee_joint_right, factor: -1 }
+  
+zeros:
+  knee_to_shin_left: 0
+  ankle_joint_left: 0.226893
+  knee_to_shin_right: 0
+  ankle_joint_right: 0.226893
