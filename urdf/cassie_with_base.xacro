@@ -13,68 +13,6 @@
   <xacro:property name="maize_RGB" value=".9451 .7686 0 1" />
   <xacro:property name="light_grey_RGB" value="0.75 0.75 0.75 1" />
 
-  <!-- Links -->
-  <xacro:map />
-  <xacro:x_link />
-  <xacro:y_link />
-  <xacro:z_link />
-  <xacro:yaw_link />
-  <xacro:pitch_link />
-  <xacro:vectorNav />
-  <xacro:pelvis cname="grey" color="${grey_RGB}" />
-  <xacro:pelvis_abduction side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext=""/>
-  <xacro:pelvis_rotation side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1" />
-  <xacro:hip side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" />
-  <xacro:thigh side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1"/>
-  <xacro:knee side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
-  <xacro:shin side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
-  <xacro:tarsus side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
-  <xacro:toe side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1"/>
-  <xacro:pelvis_abduction side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror"/>
-  <xacro:pelvis_rotation side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:hip side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror"/>
-  <xacro:thigh side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:knee side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:shin side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:tarsus side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
-  <xacro:toe side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
-  
-  <!-- Joints -->
-  <xacro:x />
-  <xacro:y />
-  <xacro:z />
-  <xacro:yaw />
-  <xacro:pitch />
-  <xacro:roll />
-  <xacro:fixed_pelvis_to_vectorNav />
-  <xacro:fixed_pelvis_to_abduction side="left" reflect="1"/>
-  <xacro:hip_abduction side="left"/>
-  <xacro:hip_rotation side="left"/>
-  <xacro:hip_flexion side="left"/>
-  <xacro:knee_joint side="left" reflect="1"/>
-  <xacro:knee_to_shin side="left"/>
-  <xacro:ankle_joint side="left"/>
-  <xacro:toe_joint side="left"/>
-  <xacro:fixed_pelvis_to_abduction side="right" reflect="-1"/>
-  <xacro:hip_abduction side="right"/>
-  <xacro:hip_rotation side="right"/>
-  <xacro:hip_flexion side="right"/>
-  <xacro:knee_joint side="right" reflect="-1"/>
-  <xacro:knee_to_shin side="right"/>
-  <xacro:ankle_joint side="right"/>
-  <xacro:toe_joint side="right"/>
-  
-  <!-- Transmissions -->
-  <xacro:hip_abduction_trans side="left"/>
-  <xacro:hip_rotation_trans side="left"/>
-  <xacro:hip_flexion_trans side="left"/>
-  <xacro:knee_joint_trans side="left"/>
-  <xacro:toe_joint_trans side="left"/>
-  <xacro:hip_abduction_trans side="right"/>
-  <xacro:hip_rotation_trans side="right"/>
-  <xacro:hip_flexion_trans side="right"/>
-  <xacro:knee_joint_trans side="right"/>
-  <xacro:toe_joint_trans side="right"/>
 
   
   <!-- Link Definitions-->
@@ -480,5 +418,68 @@
 	  <mechanicalReduction>50</mechanicalReduction>
     </transmission>
   </xacro:macro>  
+
+  <!-- Links -->
+  <xacro:map />
+  <xacro:x_link />
+  <xacro:y_link />
+  <xacro:z_link />
+  <xacro:yaw_link />
+  <xacro:pitch_link />
+  <xacro:vectorNav />
+  <xacro:pelvis cname="grey" color="${grey_RGB}" />
+  <xacro:pelvis_abduction side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext=""/>
+  <xacro:pelvis_rotation side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1" />
+  <xacro:hip side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" />
+  <xacro:thigh side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:knee side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:shin side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:tarsus side="left" cname="grey" color="${grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:toe side="left" cname="light_grey" color="${light_grey_RGB}" stl_ext="" reflect="1"/>
+  <xacro:pelvis_abduction side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror"/>
+  <xacro:pelvis_rotation side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:hip side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror"/>
+  <xacro:thigh side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:knee side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:shin side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:tarsus side="right" cname="grey" color="${grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  <xacro:toe side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
+  
+  <!-- Joints -->
+  <xacro:x />
+  <xacro:y />
+  <xacro:z />
+  <xacro:yaw />
+  <xacro:pitch />
+  <xacro:roll />
+  <xacro:fixed_pelvis_to_vectorNav />
+  <xacro:fixed_pelvis_to_abduction side="left" reflect="1"/>
+  <xacro:hip_abduction side="left"/>
+  <xacro:hip_rotation side="left"/>
+  <xacro:hip_flexion side="left"/>
+  <xacro:knee_joint side="left" reflect="1"/>
+  <xacro:knee_to_shin side="left"/>
+  <xacro:ankle_joint side="left"/>
+  <xacro:toe_joint side="left"/>
+  <xacro:fixed_pelvis_to_abduction side="right" reflect="-1"/>
+  <xacro:hip_abduction side="right"/>
+  <xacro:hip_rotation side="right"/>
+  <xacro:hip_flexion side="right"/>
+  <xacro:knee_joint side="right" reflect="-1"/>
+  <xacro:knee_to_shin side="right"/>
+  <xacro:ankle_joint side="right"/>
+  <xacro:toe_joint side="right"/>
+  
+  <!-- Transmissions -->
+  <xacro:hip_abduction_trans side="left"/>
+  <xacro:hip_rotation_trans side="left"/>
+  <xacro:hip_flexion_trans side="left"/>
+  <xacro:knee_joint_trans side="left"/>
+  <xacro:toe_joint_trans side="left"/>
+  <xacro:hip_abduction_trans side="right"/>
+  <xacro:hip_rotation_trans side="right"/>
+  <xacro:hip_flexion_trans side="right"/>
+  <xacro:knee_joint_trans side="right"/>
+  <xacro:toe_joint_trans side="right"/>
 
 </robot>
