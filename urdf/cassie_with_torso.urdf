@@ -16,7 +16,7 @@
     <visual>
       <origin rpy="1.57 0 1.57" xyz="-0.192 -0.19 -0.095"/>
       <geometry>
-        <mesh filename="package://cassie_description/meshes/CassieTorso_Mount.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://cassie_description/meshes/torso.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="grey">
         <color rgba="0.35 0.35 0.35 1"/>
