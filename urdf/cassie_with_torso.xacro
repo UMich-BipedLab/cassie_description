@@ -287,11 +287,11 @@
   </xacro:macro>
   
   <!-- Joint Definitions -->
-  <xacro:macro name="fixed_torso_to_pelvis">
-    <joint name="fixed_torso_to_pelvis" type="fixed">
-      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
-      <parent link="torso" />
-      <child link="pelvis" />
+  <xacro:macro name="fixed_pelvis_to_torso">
+    <joint name="fixed_pelvis_to_torso" type="fixed">
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <parent link="pelvis" />
+      <child link="torso" />
     </joint>
   </xacro:macro>
 
@@ -479,7 +479,7 @@
   <xacro:toe side="right" cname="light_grey" color="${light_grey_RGB}" stl_ext="_mirror" reflect="-1"/>
   
   <!-- Joints -->
-  <xacro:fixed_torso_to_pelvis/>
+  <xacro:fixed_pelvis_to_torso/>
   <xacro:fixed_torso_to_top_lidar/>
   <xacro:fixed_torso_to_tilted_lidar/>
   <xacro:fixed_torso_to_front_camera/>

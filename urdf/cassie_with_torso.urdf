@@ -366,10 +366,10 @@
       </material>
     </visual>
   </link>
-  <joint name="fixed_torso_to_pelvis" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 -0.15"/>
-    <parent link="torso"/>
-    <child link="pelvis"/>
+  <joint name="fixed_pelvis_to_torso" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.15"/>
+    <parent link="pelvis"/>
+    <child link="torso"/>
   </joint>
   <joint name="fixed_torso_to_top_lidar" type="fixed">
     <origin rpy="0 0 0" xyz="0.065 0 0.38"/>
