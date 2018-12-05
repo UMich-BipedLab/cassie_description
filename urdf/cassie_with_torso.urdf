@@ -9,8 +9,8 @@
 <robot name="cassie" xmlns:xacro="http://ros.org/wiki/xacro">
   <link name="torso">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="8"/>
+      <origin rpy="0 0 0" xyz="0.00637 -0.00235 0.0803"/>
+      <mass value="8.5"/>
       <inertia ixx=".0942" ixy=".000169" ixz=".015" iyy=".084" iyz=".000516" izz=".113"/>
     </inertial>
     <visual>
