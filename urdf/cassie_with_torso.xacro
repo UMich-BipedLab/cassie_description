@@ -342,6 +342,7 @@
       <child link="${side}_pelvis_abduction" />
     </joint>
   </xacro:macro>
+  
   <xacro:macro name="hip_abduction" params="side">
     <joint name="hip_abduction_${side}" type="continuous">
       <origin xyz="0 0 -0.07" rpy="0 ${-pi/2} 0"/>
